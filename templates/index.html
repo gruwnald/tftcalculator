@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TFT probability calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+    <script  src="script.js"></script>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <div class="center upper">
+        <h1>TFT probability calculator</h1>
+        <h3>Calculate the probability of hitting a desired unit in TFT set 9.5</h3>
+        <div class="level">
+            <label for="level">What level will you be rolling on?</label>
+            <div class="flex items-center justify-between">
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=1 onchange="result()">
+                        <span>1</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=2 onchange="result()">
+                        <span>2</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=3 onchange="result()">
+                        <span>3</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=4 onchange="result()">
+                        <span>4</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=5 onchange="result()">
+                        <span>5</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=6 onchange="result()">
+                        <span>6</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=7 onchange="result()">
+                        <span>7</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=8 onchange="result()">
+                        <span>8</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=9 onchange="result()">
+                        <span>9</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=10 onchange="result()">
+                        <span>10</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="level" name="level" type="radio" value=11 onchange="result()">
+                        <span>11</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="cost">
+            <label for="cost">What is the cost of your desired unit?</label>
+            <div class="flex items-center justify-between">
+                <div>
+                    <label>
+                        <input id="cost" name="cost" type="radio" value=1 onchange="result()">
+                        <span>1</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="cost" name="cost" type="radio" value=2 onchange="result()">
+                        <span>2</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="cost" name="cost" type="radio" value=3 onchange="result()">
+                        <span>3</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="cost" name="cost" type="radio" value=4 onchange="result()">
+                        <span>4</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input id="cost" name="cost" type="radio" value=5 onchange="result()">
+                        <span>5</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <label for="rerolls">How much gold do you intend to spend on rolling?</label>
+        <input type="number" id="gold" name="rerolls" onchange="result()">
+        <label for="gone_units_wanted">How many copies of your desired unit have been taken out of the
+            pool?</label>
+        <input type="number" id="gone_units_wanted" name="gone_units_wanted" onchange="result()">
+        <label for="gone_units_all">How many copies of units of the same cost as your desired unit have been
+            taken out of the pool? (Including your unit)</label>
+        <input type="number" id="gone_units_all" name="gone_units_all" onchange="result()">
+        <table><tr>
+            <th>Number of copies</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+          </tr>
+          <tr>
+            <td>Probability</td>
+            <td id="p1"></td>
+            <td id="p2"></td>
+            <td id="p3"></td>
+            <td id="p4"></td>
+            <td id="p5"></td>
+            <td id="p6"></td>
+            <td id="p7"></td>
+            <td id="p8"></td>
+            <td id="p9"></td>
+          </tr>
+        </table>
+    </div>
+</body>
